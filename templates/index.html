@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пограничный контроль</title>
+    <!-- Глобальные обязательные стили -->
+    <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="static/vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Стили для страницы -->
+    <link href="static/css/animate.css" rel="stylesheet">
+    <link href="static/css/message.css" rel="stylesheet">
+    <link href="static/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/custombutton.css" rel="stylesheet">
+    <!-- Тематические стили -->
+    <link href="static/css/layout.min.css" rel="stylesheet" type="text/css">
+    <!-- Фавикон -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        /* Дополнительные стили для второго HTML-кода */
+        body {
+            background-image: url("static/img/burger_bg_1.png");
+            background-size: cover;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+        h3 {
+            margin-top: 120px;
+            font-size: 24px; /* Размер шрифта */
+            font-weight: bold; /* Жирный шрифт */
+            color: #333; /* Цвет текста */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header navbar-fixed-top">
+        <nav class="navbar" role="navigation">
+            <a href="#">Главная</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+            <div class="container" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+                <div class="collapse navbar-collapse nav-collapse" style="order: 1; margin-top: 20px">
+
+                </div>
+                <div class="navbar-header" style="order: 0">
+                    <a class="navbar-brand animate__animated animate__pulse" href="#">
+                        <img style="width: 500px; height: 60px; object-fit: cover" src="static/img/banner.jpg" alt="Логотип">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="bg-color-sky-light overflow-h">
+        <div class="row margin-b-40 sr">
+            <div class="content-lg container">
+                <div class="row margin-b-40">
+                    <div class="col-sm-6">
+                        <h3 class="container" style ="margin-top:200px;">Проверка паспорта</h3> <!-- Изменено на русский -->
+                        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                            <!-- Поместите кнопку выбора файла перед кнопкой Submit -->
+                            <input type="file" name="photo" id="fileInput" accept="image/*" onchange="previewImage()" style="display: none;">
+                            <label for="fileInput" class="up custom-file-input"></label>
+                            <div id="imagePreview"></div>
+                            <button onclick="uploadFile()" type="submit" class="up custom-button" style="text-align: center;">Отправить</button> <!-- Изменено на русский -->
+                        </form>
+                        {% if message %}
+                            <div class="message {{ message_class }}" style="color: #211e1e;">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='cards'>
+
+
+       <div class='cards-holder'>
+
+            <div class='card'>
+                <div class='card-title'>
+                    <div class="circle-marker">1</div>
+                    <div style="margin-left: 10px;">Двухэтапная проверка паспорта</div>
+                </div>
+
+                <div class='card-desc'>
+                   Наша программа использует два этапа проверки парспорта на подленность. Первый этап - это OCR, второй YOLOv8.
+                </div>
+
+            </div>
+
+            <div class='card'>
+
+                <div class='card-title'>
+                    <div class="circle-marker">2</div>
+                    <div style="margin-left: 10px;">Надежность</div>
+                </div>
+
+                <div class='card-desc'>
+                    Наша обученная модель определяет некорректный паспорт с точьностью 95%.
+
+                </div>
+
+            </div>
+
+            <div class='card' >
+                <div class='card-title'>
+                    <div class="circle-marker">3</div>
+                    <div style="margin-left: 10px;">Маштабируемость</div>
+                </div>
+                <div class='card-desc'>
+                    Наш проект при помощи полученной базы данных с легкость сможет определять корректность паспорта любых стран.
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+<footer>
+    <div class="container" style="margin-left: 100px">
+        <p>&copy; 2024 Пограничный контроль. Все права защищены.</p>
+    </div>
+</footer>
+
+    <a href="javascript:void(0);" class="js-back-to-top back-to-top">Вверх</a> <!-- Изменено на русский -->
+
+    <!-- Скрипт для предпросмотра изображения -->
+    <script>
+        function previewImage() {
+            var fileInput = document.getElementById('fileInput');
+            var files = fileInput.files;
+
+            if (files.length > 0) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var imgElement = document.createElement('img');
+                    imgElement.src = event.target.result;
+                    imgElement.style.maxWidth = '120%';
+                    imgElement.style.height = 'auto';
+                    document.getElementById('imagePreview').innerHTML = '';
+                    document.getElementById('imagePreview').appendChild(imgElement);
+                };
+                reader.readAsDataURL(files[0]);
+            }
+        }
+    </script>
+    <!-- Скрипт для отправки формы -->
+    <script>
+        function uploadFile(event) {
+            event.preventDefault(); // Предотвращаем действие по умолчанию (перезагрузку страницы)
+            var formData = new FormData(document.getElementById('uploadForm'));
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(result => {
+                    console.log(result); // Показать результат в консоли для отладки
+        // Добавьте код для обработки успешной отправки формы, если нужн
+                    })
+                .catch(error => {
+        console.error('Error:', error);
+        // Добавьте обработку ошибок, если нужно
+    });
+}
+
+    </script>
+</body>
+</html>

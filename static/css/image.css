@@ -1,0 +1,6 @@
+.logo {
+    object-fit: cover;
+    width: 200px; /* Растягиваем по ширине */
+    height: 150px; /* Растягиваем по высоте */
+    display: none;
+}

@@ -1,0 +1,12 @@
+/* Стили для сообщения */
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff; /* Цвет текста */
+    -webkit-text-stroke: 1px #000; /* Ширина и цвет обводки */
+}
+
+
+
